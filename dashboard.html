@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Click the target</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700">
+    <link rel="stylesheet" href="base.css">
+    <script src="dashboard.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <h1><img id="logo" src="crosshair.png"></span>Click the target</h1>
+
+        <h2>Dashboard &mdash; see your data</h2>
+
+        <div id="login">
+            <p>
+                Insert your secret code and get access to the data on your experiment
+            </p>
+            <form>
+                <div class="form-control">
+                    <label for="code">Code: </label>
+                    <input type="text" id="code">
+                    <div class="error" id="error-code"></div>
+                </div>
+                <div class="form-control">
+                    <button type="button">Get data</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="data">
+            <table id="main-data">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Age</th>
+                        <th>User ID</th>
+                        <th>Successes</th>
+                        <th>Failures</th>
+                        <th>Mistakes</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+
+<template id="main-data-row-template">
+    <tr class="main-row" data-details-id="">
+        <td><span data-grab-from="time"></span></td>
+        <td><span data-grab-from="age"></span></td>
+        <td><span data-grab-from="user_id"></span></td>
+        <td><span data-grab-from="successes"></span></td>
+        <td><span data-grab-from="failures"></span></td>
+        <td><span data-grab-from="mistakes"></span></td>
+    </tr>
+    <tr class="details">
+        <td colspan="6">
+            <div class="panel">
+                <div><h3>Sequence</h3>: <span data-grab-from="sequence"></span></div>
+                <div><h3>Grid width</h3>: <span data-grab-from="width"></span></div>
+                <div><h3>Grid height</h3>: <span data-grab-from="width"></span></div>
+                <div class="interactions">
+                    <h3>Interactions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Elapsed time</th>
+                                <th>X</th>
+                                <th>Y</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template id="details-row-template">
+    <tr class="main-row">
+        <td><span data-grab-from="type"></span></td>
+        <td><span data-grab-from="elapsed"></span></td>
+        <td><span data-grab-from="x"></span></td>
+        <td><span data-grab-from="y"></span></td>
+    </tr>
+</template>
+
+</html>
